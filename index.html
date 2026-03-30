@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Test</title>
+  </head>
+  <body>
+    <nav>
+      <logo
+        ><a href="https://pulseapp.com/"
+          ><img
+            src="https://pulseapp.com/img/pulse-logo.svg"
+            alt=""
+            srcset="" /></a
+      ></logo>
+      <ul>
+        <li class="items"><a href="#">Features</a></li>
+        <li class="items"><a href="#">Customer Stories</a></li>
+        <li class="items"><a href="#">Pricing</a></li>
+        <li class="items"><a href="#">Blog</a></li>
+        <li><a class="navb" href="#" type="button">Sign Up</a></li>
+      </ul>
+    </nav>
+    <div class="burger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <menu-item id="menu-item">
+      <ul>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Customer Stories</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#" type="button">Sign Up</a></li>
+      </ul>
+    </menu-item>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu-item").classList.toggle("active");
+      }
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth >= 768) {
+          document.getElementById("menu-item").classList.remove("active");
+        }
+      });
+      const items = document.querySelectorAll("menu-item a");
+
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, index * 300); // delay each item
+      });
+    </script>
+  </body>
+</html>
