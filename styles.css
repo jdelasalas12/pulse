@@ -145,7 +145,6 @@ header p {
 
 .pricing {
   display: flex;
-  gap: 1em;
   max-width: 1200px;
   align-items: center;
   justify-content: center;
@@ -156,8 +155,9 @@ header p {
 /* LEFT COLUMN */
 .pricing-left {
   min-width: auto;
-   height: 400px;
+  height: 400px;
   width: 100%;
+  padding-right: 0.5em;
 }
 
 .pricing-left h3 {
@@ -173,6 +173,7 @@ header p {
 .pricing-left li {
   margin-bottom: 10px;
   color: #444;
+  line-height: 1.5;
 }
 
 .basic-link a {
@@ -182,13 +183,12 @@ header p {
 
 /* CARDS */
 
-
-
 .card {
   background: #fff;
-  padding: 1em;
-   min-width: auto;
-   height: 400px;
+
+  padding: 1em 0;
+  min-width: auto;
+  height: 500px;
   width: 100%;
   border: 1px solid #ddd;
   text-align: center;
@@ -203,6 +203,7 @@ header p {
 
 .price {
   color: #555;
+  font-size: 1.5em;
   margin-bottom: 20px;
 }
 
@@ -224,7 +225,7 @@ button:hover {
 .featured {
   border: 2px solid #22c55e;
   height: 600px;
-  border-radius: 1em;
+  border-radius: 1em 1em 0 0;
 }
 
 .badge {
@@ -232,25 +233,31 @@ button:hover {
   top: 0px;
   left: 50%;
   width: 100%;
-  border-radius: 1em  1em 0 0;
+  border-radius: 1em 1em 0 0;
   transform: translateX(-50%);
   background: #22c55e;
   color: #fff;
   padding: 5px 15px;
   font-size: 12px;
   font-weight: bold;
-  
 }
-
+.complex {
+  border-bottom: 1px solid #ddd;
+}
+.complex p {
+  margin-bottom: 1em;
+}
 /* FEATURES */
 .features {
+  padding: 0 1em;
   text-align: left;
 }
 
 .features .title {
   font-size: 12px;
+  text-align: center;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 2em;
 }
 
 .features ul {
@@ -258,9 +265,21 @@ button:hover {
 }
 
 .features li {
+  list-style: none;
+
   margin-bottom: 8px;
   color: #444;
 }
+
+.features li::before {
+  content: "\2713";
+  color: #16a34a;
+  margin-right: 0.5em;
+  font-size: 0.75em;
+  font-weight: 600;
+  line-height: 3;
+}
+
 @media (max-width: 767px) {
   nav ul {
     display: none;
@@ -272,7 +291,7 @@ button:hover {
     padding: 1em;
   }
   header h1 {
-    padding: 0.5em;
+    padding: 0.5em 0.5em;
     font-size: 2.7rem;
     text-align: left;
     font-weight: 800;
@@ -280,27 +299,54 @@ button:hover {
   }
   header p {
     text-align: left;
-    padding: 1em;
+    padding: 0 1em;
     width: 100%;
   }
   .burger {
     right: 1em;
+    top: 2em;
+  }
+  .pricing {
+    height: auto;
+  }
+}
+@media (max-width: 900px) {
+  header {
+    margin-bottom: 0;
   }
 
+  .pricing {
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 0 1em;
   }
-  @media (max-width: 900px) {
-    .pricing {
-      flex-direction: column;
-      align-items: center;
-    }
 
-    .pricing-left {
-      max-width: 100%;
-      text-align: center;
-    }
+  .pricing-left {
+    max-width: 100%;
+    text-align: left;
+    height: auto;
+    padding: 1em;
+  }
 
-    .features {
-      text-align: left;
-    }
+  .features {
+    text-align: center;
+  }
+  button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 98%;
+    bottom: 3em;
+  }
+  .card {
+    height: 500px;
+  }
+}
+@media (min-width: 200px) and (max-width: 500px) {
+  button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: 98%;
+    bottom: 0;
   }
 }
