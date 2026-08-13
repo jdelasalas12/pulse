@@ -8,10 +8,12 @@
     Helvetica,
     Arial,
     sans-serif;
+  scroll-behavior: smooth;
 }
 
 nav {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;

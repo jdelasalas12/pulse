@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ActionButton from "./Email";
 import ContactButton from "./Call";
+import ActiveLink from "./Active";
 
 const Footer = () => {
   const defaultStyles =
@@ -13,10 +14,15 @@ const Footer = () => {
       <h1 className="bg-gradient-to-r from-amber-600 to-red-600 bg-clip-text text-transparent text-2xl font-medium mt-4 mb-4">
         LOGO
       </h1>
-      <div className="flex gap-4">
-        <Link className={`${defaultStyles}`} href="/">
+      <div className="flex flex-wrap gap-4">
+        <ActiveLink
+          activeClassName={`${defaultStyles}`}
+          inactiveClassName="text-black"
+          exact={false}
+          href="/"
+        >
           Home
-        </Link>
+        </ActiveLink>
         <Link className={`${defaultStyles}`} href="/">
           Services
         </Link>
@@ -27,7 +33,7 @@ const Footer = () => {
           Portfolio
         </Link>
         <Link className={`${defaultStyles}`} href="/">
-          About Me
+          Contact
         </Link>
       </div>
       <div className="flex gap-8 mt-4 mb-8">
